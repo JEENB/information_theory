@@ -11,12 +11,16 @@ class Data:
 	
 	'''
 
-	def __init__(self, symbols: list, prob: list):
-		self.symbols = symbols
-		self.prob = prob
+	def __init__(self, symbols: list, prob: list, d = [0,1]):
+		self.symbols 	= symbols
+		self.prob 		= prob
+		self.d 			= d
+
+		if len(self.symbols) != len(set(self.symbols)):
+			raise(exceptions.Duplicate(f"Duplicate Symbols detected"))
 
 		if len(self.symbols) != len(self.prob):
-			raise(exceptions.SrcDataMismatch(f"Symbol and probabiliyt length mismatch \nExpected {max(self.symbols, self.prob)} got {min(self.symbols, self.prob)}"))
+			raise(exceptions.SrcDataMismatch(f"Symbol and probability length mismatch \nExpected {max(self.symbols, self.prob)} got {min(self.symbols, self.prob)}"))
 
 		for p in self.prob:
 			if isinstance(p, float):

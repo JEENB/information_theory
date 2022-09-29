@@ -21,3 +21,11 @@ class InstanceError(Exception):
 class LengthMismatch(Exception):
 	'''Raised when the length is mismatched'''
 	pass
+
+class Duplicate(Exception):
+	'''Raised when duplicates are detected in a list'''
+	pass
+
+class SymbolsMismatch(Exception):
+	'''Raised when symbols are mismatched '''
+	pass
